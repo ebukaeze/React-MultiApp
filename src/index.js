@@ -3,9 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import BlogPost from "./pages/BlogPost";
-import Root from "./routes/root";
+import Root, {
+  loader as rootLoader,
+  action as rootAction,
+} from "./routes/root";
 import Home from "./pages/Home";
 import ErrorPage from "./error-page";
+import Contact from "./routes/contact";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -16,8 +20,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/contact",
+    path: "/contacts",
     element: <Root />,
+    action: rootAction,
+    loader: rootLoader,
+    children: [
+      {
+        path: "/contacts/:contactId",
+        element: <Contact />,
+      },
+    ],
   },
   {
     path: "/blog",
