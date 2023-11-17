@@ -28,6 +28,12 @@ const Home = () => {
             link={"/blog"}
             icon={<FaBlog width={40} height={40} />}
           />
+          <Card
+            title={"Blog Post App"}
+            onClick={() => {}}
+            link={"/blog"}
+            icon={<FaBlog width={40} height={40} />}
+          />
         </div>
       </div>
     </section>
