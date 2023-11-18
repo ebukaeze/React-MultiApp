@@ -10,6 +10,7 @@ import Root, {
 import Home from "./pages/Home";
 import ErrorPage from "./error-page";
 import Contact, { loader as contactLoader } from "./routes/contact";
+import EditContact, { action as editAction } from "./routes/edit";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
         path: "/contacts/:contactId",
         element: <Contact />,
         loader: contactLoader,
+      },
+      {
+        path: "/contacts/edit",
+        element: <EditContact />,
+        loader: contactLoader,
+        action: editAction,
       },
     ],
   },
