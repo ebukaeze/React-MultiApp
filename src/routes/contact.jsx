@@ -45,7 +45,7 @@ function Contact() {
         {contact.notes && <p>{contact.notes}</p>}
 
         <div>
-          <form action="edit">
+          <form action={`${contact.id}/edit`}>
             <button type="submit">Edit</button>
           </form>
           <form
