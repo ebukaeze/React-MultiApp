@@ -18,7 +18,7 @@ const Home = () => {
           />
           <Card
             title={"Contact Search App"}
-            link={"/contact"}
+            link={"/contacts"}
             onClick={() => {}}
             icon={<FaAddressBook width={120} height={120} />}
           />
