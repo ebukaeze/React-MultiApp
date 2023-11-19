@@ -10,6 +10,7 @@ import Root, {
 import Home from "./pages/Home";
 import ErrorPage from "./error-page";
 import Contact, { loader as contactLoader } from "./routes/contact";
+import { action as deleteAction } from "./routes/destroy";
 import EditContact, { action as editAction } from "./routes/edit";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         element: <EditContact />,
         loader: contactLoader,
         action: editAction,
+      },
+      {
+        path: "/contacts/contactId/destroy",
+        action: deleteAction,
       },
     ],
   },
