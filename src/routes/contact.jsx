@@ -45,10 +45,10 @@ function Contact() {
         {contact.notes && <p>{contact.notes}</p>}
 
         <div>
-          <form action={`${contact.id}/edit`}>
+          <Form action={`edit`}>
             <button type="submit">Edit</button>
-          </form>
-          <form
+          </Form>
+          <Form
             method="post"
             action="destroy"
             onSubmit={(event) => {
@@ -62,7 +62,7 @@ function Contact() {
             }}
           >
             <button type="submit">Delete</button>
-          </form>
+          </Form>
         </div>
       </div>
     </div>
