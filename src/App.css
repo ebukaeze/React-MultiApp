@@ -78,14 +78,37 @@
 }
 .grid_container {
   display: grid;
-  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, minmax(270px, 1fr));
   gap: 20px;
+}
+.btn-3d {
+  position: relative;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0077cc;
+  border: none;
+  cursor: pointer;
+}
+.btn-3d:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #005599;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+.btn-3d:hover:before {
+  transform: translateY(0);
 }
 .card {
   width: 250px;
   height: 250px;
   background-color: white;
   box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.2), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  border-radius: 10px;
 }
 .card_container {
   display: flex;

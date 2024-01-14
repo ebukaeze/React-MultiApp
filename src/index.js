@@ -3,9 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import BlogPost from "./pages/BlogPost";
-import Root from "./routes/root";
+import Root, {
+  loader as rootLoader,
+  action as rootAction,
+} from "./routes/root";
 import Home from "./pages/Home";
 import ErrorPage from "./error-page";
+import Contact, { loader as contactLoader } from "./routes/contact";
+import DeleteContact, { action as deleteAction } from "./routes/destroy";
+import EditContact, { action as editAction } from "./routes/edit";
+import IndexPage from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -16,8 +23,34 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/contact",
+    path: "/contacts",
     element: <Root />,
+    action: rootAction,
+    loader: rootLoader,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <IndexPage />,
+      },
+      {
+        path: "/contacts/:contactId",
+        element: <Contact />,
+        loader: contactLoader,
+      },
+      {
+        path: "/contacts/:contactId/edit",
+        element: <EditContact />,
+        loader: contactLoader,
+        action: editAction,
+      },
+      {
+        path: "/contacts/contactId/destroy",
+        element: <DeleteContact />,
+        action: deleteAction,
+        errorElement: <div> Oops! There's an error</div>,
+      },
+    ],
   },
   {
     path: "/blog",

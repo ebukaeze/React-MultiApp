@@ -18,9 +18,15 @@ const Home = () => {
           />
           <Card
             title={"Contact Search App"}
-            link={"/contact"}
+            link={"/contacts"}
             onClick={() => {}}
             icon={<FaAddressBook width={120} height={120} />}
+          />
+          <Card
+            title={"Blog Post App"}
+            onClick={() => {}}
+            link={"/blog"}
+            icon={<FaBlog width={40} height={40} />}
           />
           <Card
             title={"Blog Post App"}
