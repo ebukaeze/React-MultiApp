@@ -73,7 +73,7 @@ function Favorite({ contact }) {
   let favorite = contact.favorite;
 
   return (
-    <form method="post">
+    <Form method="post">
       <button
         name="favorite"
         value={favorite ? "false" : "true"}
@@ -81,7 +81,7 @@ function Favorite({ contact }) {
       >
         {favorite ? "★" : "☆"}
       </button>
-    </form>
+    </Form>
   );
 }
 
