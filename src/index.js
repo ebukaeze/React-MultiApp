@@ -10,8 +10,9 @@ import Root, {
 import Home from "./pages/Home";
 import ErrorPage from "./error-page";
 import Contact, { loader as contactLoader } from "./routes/contact";
-import { action as deleteAction } from "./routes/destroy";
+import DeleteContact, { action as deleteAction } from "./routes/destroy";
 import EditContact, { action as editAction } from "./routes/edit";
+import IndexPage from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -26,7 +27,12 @@ const router = createBrowserRouter([
     element: <Root />,
     action: rootAction,
     loader: rootLoader,
+    errorElement: <ErrorPage />,
     children: [
+      {
+        index: true,
+        element: <IndexPage />,
+      },
       {
         path: "/contacts/:contactId",
         element: <Contact />,
@@ -40,7 +46,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/contacts/contactId/destroy",
+        element: <DeleteContact />,
         action: deleteAction,
+        errorElement: <div> Oops! There's an error</div>,
       },
     ],
   },
